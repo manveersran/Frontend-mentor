@@ -1,0 +1,104 @@
+/* 
+    Author: Manveer Singh
+    Email: sranmanveer678@gmail.com
+    License: MIT
+*/
+
+:root {
+  /* Primary colors */
+  --primary-cream: hsl(30, 38%, 92%);
+  --primary-dark-cyan: hsl(158, 36%, 37%);
+
+  /* Neutral Colors */
+  --neutral-white: hsl(0, 0%, 100%);
+  --neutral-dark-blue: hsl(212, 21%, 14%);
+  --neutral-grayish-blue: hsl(228, 12%, 48%);
+}
+
+* {
+  /* Setting margin and padding for all the elements on the webpage to 0. */
+  margin: 0;
+  padding: 0;
+
+  /* Changing box sizing mode to border-box */
+  /* to ensure proper sizing of elements */
+  box-sizing: border-box;
+}
+
+html,
+body {
+  /* Matching the viewport height */
+  height: 100svh;
+}
+
+body {
+  /* Aligning items to center of the webpage */
+  display: grid;
+  place-items: center;
+
+  /* Changing the background color of the webpage */
+  background-color: var(--primary-cream);
+}
+
+.card {
+  /* Dimensions for the product card */
+  height: 450px;
+  aspect-ratio: 1.5/1;
+
+  /* Adding rounder cornors */
+  overflow: hidden;
+  border-radius: 15px;
+
+  /* Changing background to white */
+  background-color: var(--neutral-white);
+
+  /* Changing the display type to grid */
+  /* Making 2 columns and 1 row */
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+
+.image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* Adding product background image */
+  background-image: url("/images/image-product-desktop.jpg");
+}
+
+.details {
+  /* Adding extra space to the edges of the container */
+  padding: 25px;
+
+  /* Changing container to flexbox */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  /* Adding gap betweeen columns */
+  gap: 2em;
+}
+
+.details .top {
+  /* Tweaking font */
+  font-size: 0.8rem;
+  letter-spacing: 0.35rem;
+  font-family: "Montserrat", sans-serif;
+
+  /* Changing color */
+  color: var(--neutral-grayish-blue);
+}
+
+.details h1 {
+  font-size: 2.5rem;
+  font-family: "Fraunces", sans-serif;
+}
+
+.details p {
+  /* Changing color */
+  color: var(--neutral-grayish-blue);
+
+  /* Tweaking font */
+  font-size: 0.9rem;
+  font-family: "Poppins", sans-serif;
+}
