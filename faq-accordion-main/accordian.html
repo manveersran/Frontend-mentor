@@ -82,12 +82,8 @@
       }
 
       .accordian p {
-        max-height: 0px;
         overflow: hidden;
-      }
-
-      .accordian p.active {
-        max-height: max-content;
+        transition: max-height 250ms linear;
       }
     </style>
   </head>
@@ -103,7 +99,11 @@
           <h4>What is front end mentor and how will it help me?</h4>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
-            beatae commodi soluta laborum porro corrupti harum ab rem
+            beatae commodi soluta laborum porro corrupti harum ab rem. Lorem
+            ipsum dolor sit amet, consectetur adipisicing elit. Soluta
+            laboriosam molestias voluptas corrupti error hic laudantium
+            repudiandae voluptates nemo quia, officia assumenda. Illum, expedita
+            aliquid. Possimus error accusamus provident soluta!
           </p>
         </div>
 
@@ -134,10 +134,19 @@
         // Getting the 'p' tag inside the accordian
         const accordianPTag = accordian.querySelector("p");
 
+        // Getting the dimensions of the p tag.
+        const dimensions = accordianPTag.getBoundingClientRect();
+        accordianPTag.style.maxHeight = 0;
+
         // Listening for a click event on the accordian
         accordian.addEventListener("click", function () {
-          // Once clicked, removing the class 'active' if exists, otherwise appending the class on tag.
-          accordianPTag.classList.toggle("active");
+          if (accordian.classList.contains("active")) {
+            accordian.classList.remove("active");
+            accordianPTag.style.maxHeight = 0;
+          } else {
+            accordian.classList.add("active");
+            accordianPTag.style.maxHeight = dimensions.height + "px";
+          }
         });
       });
     </script>
